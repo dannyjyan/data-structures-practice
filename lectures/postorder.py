@@ -30,48 +30,64 @@ def flatten(root):
   prev = root 
 
 #  // Check balanced //
-def checkBalanced(root):
-  if root == None: 
-    return True
-  curr = [root]
-  nextLevel = []
-  lastLevel = False 
-  nextLevel = False
-  while len(curr) is not 0:
-    for node in curr:
-      if node.left:
-        if lastLevel == True:
-          return False
-        nextLevel.append(node.left)
-      else:
-        if lastLevel:
-          return False 
-        else:
-          nextLevel = True
-      if node.right:
-        if 
-        nextLevel.append(node.right)
-      else: 
-        if lastLevel:
-          return False 
-        else:
-          nextLevel = True
-    if nextLevel:
-      lastLevel = True
-    curr = nextLevel
-  return True 
+# def checkBalanced(root):
+#   if root == None: 
+#     return True
+#   curr = [root]
+#   nextLevel = []
+#   lastLevel = False 
+#   nextLevel = False
+#   while len(curr) is not 0:
+#     for node in curr:
+#       if node.left:
+#         if lastLevel == True:
+#           return False
+#         nextLevel.append(node.left)
+#       else:
+#         if lastLevel:
+#           return False 
+#         else:
+#           nextLevel = True
+#       if node.right:
+#         if 
+#         nextLevel.append(node.right)
+#       else: 
+#         if lastLevel:
+#           return False 
+#         else:
+#           nextLevel = True
+#     if nextLevel:
+#       lastLevel = True
+#     curr = nextLevel
+#   return True 
+# Time: O(n) Space: O(d)
+def checkHeight(root):
+  if root == None:
+    return -1
+  rightHeight = checkHeight(root.right)
+  if rightHeight == None: return None 
+  leftHeight = checkHeight(root.left)
+  if leftHeight == None: return None
+  heightDiff = rightHeight - leftHeight
+  if abs(heightDiff) > 1:
+    return None 
+  else: 
+    return max(leftHeight, rightHeight) + 1
 
-a = Node(1)
-b = Node(2)
-c = Node(3)
-d = Node(4)
-e = Node(5)
-f = Node(6)
-a.left = b 
-a.right = e
-b.left = c
-b.right = d 
-c. 
+
+
+
+# a = Node(1)
+# b = Node(2)
+# c = Node(3)
+# d = Node(4)
+# e = Node(5)
+# f = Node(6)
+# a.left = b 
+# a.right = e
+# b.left = c
+# b.right = d 
+# c. 
 
 
     
